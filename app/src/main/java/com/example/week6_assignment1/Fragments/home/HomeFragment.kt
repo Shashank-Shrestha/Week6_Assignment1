@@ -10,6 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.week6_assignment1.R
+import com.example.week6_assignment1.adapter.studentAdapter
+import com.example.week6_assignment1.model.Database
 
 class HomeFragment : Fragment() {
 
@@ -22,4 +24,5 @@ class HomeFragment : Fragment() {
     val root = inflater.inflate(R.layout.fragment_home, container, false)
     return root
   }
+
 }

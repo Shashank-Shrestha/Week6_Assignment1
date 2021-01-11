@@ -1,7 +1,7 @@
 package com.example.week6_assignment1.model
 
-val listStudents = mutableListOf(Student(0,"",0,"","",""))
-var loggedIn = listStudents[0]
+val listStudents = mutableListOf(Student("",0,"","",""))
+
 
 class Database {
 
