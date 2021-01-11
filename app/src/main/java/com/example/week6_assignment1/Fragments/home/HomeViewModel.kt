@@ -1,4 +1,4 @@
-package com.example.week6_assignment1.ui.home
+package com.example.week6_assignment1.Fragments.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
