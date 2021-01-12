@@ -1,6 +1,7 @@
 package com.example.week6_assignment1.Fragments.Students
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,20 +44,23 @@ class StudentFragment : Fragment() {
     save =root.findViewById(R.id.btnSave)
 
     save.setOnClickListener {
-      val database = Database()
+      if (isValid()){
+        val database = Database()
 
-      val checkID = gender.checkedRadioButtonId
-      val checkedrb: RadioButton = root.findViewById(checkID)
-      val gender = checkedrb.text.toString();
-      database.appendStudent(
-        Student(name.text.toString(),
-                age.text.toString().toInt(),
-                gender,
-                address.text.toString(),
-                imageURL.text.toString())
-      )
-      Toast.makeText(activity,"Your information has been displayed in the home fragment",Toast.LENGTH_LONG).show()
-      clearFields()
+        val checkID = gender.checkedRadioButtonId
+        val checkedrb: RadioButton = root.findViewById(checkID)
+        val gender = checkedrb.text.toString();
+        database.appendStudent(
+                Student(name.text.toString(),
+                        age.text.toString().toInt(),
+                        gender,
+                        address.text.toString(),
+                        imageURL.text.toString())
+        )
+        Toast.makeText(activity?.applicationContext,"Student Added",Toast.LENGTH_LONG).show()
+        clearFields()
+      }
+
     }
 
     return root
@@ -70,5 +74,20 @@ class StudentFragment : Fragment() {
     address.setText("")
     imageURL.setText("")
   }
+
+  private fun isValid(): Boolean {
+    var flag = true
+    if (TextUtils.isEmpty(name.text)) {
+      name.error = "Please enter Username"
+      name.requestFocus()
+      flag = false
+    } else if (TextUtils.isEmpty(age.text)){
+      age.error="Please enter age"
+      age.requestFocus()
+      flag = false
+    }
+    return flag
+  }
+
 }
 
