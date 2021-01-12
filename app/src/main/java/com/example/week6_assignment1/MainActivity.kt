@@ -15,7 +15,7 @@ import com.example.week6_assignment1.model.Database
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var details: RecyclerView
+
 
       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +30,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-          details=findViewById(R.id.rvDetails)
-          val student = Database().returnStudent()
-          val adapterStudent = studentAdapter(student.asReversed(), this@MainActivity)
-          details.layoutManager=LinearLayoutManager(this@MainActivity)
+
     }
 }
