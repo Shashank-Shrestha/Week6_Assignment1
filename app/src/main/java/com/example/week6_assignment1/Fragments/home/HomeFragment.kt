@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.week6_assignment1.Fragments.Students.StudentFragment
 import com.example.week6_assignment1.MainActivity
 import com.example.week6_assignment1.R
 import com.example.week6_assignment1.adapter.studentAdapter
@@ -27,9 +28,6 @@ class HomeFragment : Fragment() {
   ): View? {
     val root = inflater.inflate(R.layout.fragment_home, container, false)
     details = root.findViewById(R.id.rvDetails)
-
-
-
     return root
   }
   override fun onViewCreated(itemView: View, savedInstanceState: Bundle?) {
@@ -39,6 +37,7 @@ class HomeFragment : Fragment() {
       adapter = studentAdapter(context)
     }
   }
+
 
 }
 

@@ -1,21 +1,21 @@
 package com.example.week6_assignment1.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.provider.ContactsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.week6_assignment1.Fragments.Students.StudentFragment
 import com.example.week6_assignment1.Fragments.home.HomeFragment
 import com.example.week6_assignment1.R
 import com.example.week6_assignment1.model.Database
 import com.example.week6_assignment1.model.Student
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlin.reflect.typeOf
 
 private var database = Database()
 private var listStudents = database.returnStudent()
@@ -29,6 +29,7 @@ class studentAdapter(
         val userImage: CircleImageView
         val delButton : ImageButton
 
+
         init {
             name = view.findViewById(R.id.tvName)
             age = view.findViewById(R.id.tvAge)
@@ -36,6 +37,7 @@ class studentAdapter(
             address=view.findViewById(R.id.tvAddress)
             userImage=view.findViewById(R.id.imgProfile)
             delButton = view.findViewById(R.id.ibDelete)
+
 
         }
     }
@@ -58,6 +60,7 @@ class studentAdapter(
             notifyItemRemoved(position)
             Toast.makeText(context, "Student Deleted", Toast.LENGTH_LONG).show()
         })
+
         Glide.with(context)
                 .load(info?.imageURL)
                 .into(holder.userImage)
@@ -66,5 +69,6 @@ class studentAdapter(
     override fun getItemCount(): Int {
         return listStudents.size
     }
+
 }
 

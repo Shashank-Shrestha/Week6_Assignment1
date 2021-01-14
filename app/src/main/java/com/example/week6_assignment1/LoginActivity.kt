@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         when(v?.id){
             login.id->{
                 if (isValid()){
-                    if (userName.text.toString()=="admin" && password.text.toString()=="admin"){
+                    if (userName.text.toString()=="softwarica" && password.text.toString()=="coventry"){
                         Intent(this, MainActivity::class.java).also {
                             startActivity(it)
                         }

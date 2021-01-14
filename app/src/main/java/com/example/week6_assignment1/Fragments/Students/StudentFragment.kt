@@ -1,5 +1,7 @@
 package com.example.week6_assignment1.Fragments.Students
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -7,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.week6_assignment1.R
 import com.example.week6_assignment1.model.Database
 import com.example.week6_assignment1.model.Student
+import java.lang.Integer.TYPE
 
 class StudentFragment : Fragment() {
 
@@ -66,7 +70,6 @@ class StudentFragment : Fragment() {
     return root
   }
 
-
   private fun clearFields() {
     name.setText("")
     age.setText("")
@@ -85,9 +88,26 @@ class StudentFragment : Fragment() {
       age.error="Please enter age"
       age.requestFocus()
       flag = false
+    } else if (TextUtils.isEmpty(address.text)){
+      address.error="Please enter address"
+      address.requestFocus()
+      flag = false
+    }else if (TextUtils.isEmpty(imageURL.text)){
+      imageURL.error="Please enter image URL"
+      imageURL.requestFocus()
+      flag = false
     }
     return flag
   }
 
+  fun onExit(selectionValue: String){
+    val intent = Intent()
+    intent.putExtra("selection",selectionValue)
+    targetFragment?.onActivityResult(targetRequestCode, Activity.RESULT_OK, intent)
+  }
+
+
 }
+
+
 

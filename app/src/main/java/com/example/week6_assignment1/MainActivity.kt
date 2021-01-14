@@ -15,8 +15,6 @@ import com.example.week6_assignment1.model.Database
 
 class MainActivity : AppCompatActivity() {
 
-
-
       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

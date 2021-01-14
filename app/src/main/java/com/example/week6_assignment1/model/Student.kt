@@ -34,7 +34,6 @@ data class Student(
         override fun createFromParcel(parcel: Parcel): Student {
             return Student(parcel)
         }
-
         override fun newArray(size: Int): Array<Student?> {
             return arrayOfNulls(size)
         }
